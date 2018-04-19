@@ -28,13 +28,40 @@
 
 
 ### 步骤2： 选择你需要安装的集群种类
+
 选择需要安装的blueprint，在./blueprint路径下，提供了可以选择的安装模板。需要注意的是：
 * cluster_blueprint.json: 定义安装服务的配置信息、机器同安装服务之间的映射信息； 
 * cluster_mapping.json: 定义真是机器域名同机器映射之间的关系，默认提供的是3台机器安装所有服务组件；
 
-> 并不是所有的安装模板都是通用的，需要根据实际情况修改特定的配置，此处需要注意；
-> 同时，如果需要改变安装机器映射关系，可以修改cluster_mapping.json文件。
-> 
+cluster_with_7_services:
+> * 无kerberos环境；
+> * 3台机器映射；
+
+* Zookeeper;
+* HDFS;
+* YARN;
+* MapReduce;
+* HBase;
+* Kafka;
+* Ambari Metrics;
+
+cluster_with_9_services:
+> * 无kerberos环境；
+> * 3台机器映射；
+
+* Zookeeper;
+* HDFS;
+* YARN;
+* MapReduce;
+* HBase;
+* Kafka;
+* Spark2;
+* Hive;
+* Ambari Metrics;
+
+> 1. 并不是所有的安装模板都是通用的，需要根据实际情况修改特定的配置，此处需要注意；  
+> 2. 同时，如果需要改变安装机器映射关系，可以修改cluster_mapping.json文件;  
+> 3. 较复杂的blueprint映射关系，可能导致校验、安装失败，此处需要根据实际情况来使用；  
 
 ### 步骤3： 执行开启部署
 
@@ -47,7 +74,7 @@
 >
 > curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://hzadg-mammut-platform1.server.163.org:8080/api/v1/blueprints/cluster_bluprint -d @cluster_blueprint.json
 > 
-> # 创建名为cluster1的新集群
+> 创建名为cluster1的新集群
 > curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://hzadg-mammut-platform1.server.163.org:8080/api/v1/clusters/cluster1 -d @cluster_mapping.json
 
 
