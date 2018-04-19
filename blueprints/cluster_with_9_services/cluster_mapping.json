@@ -1,0 +1,30 @@
+{
+  "blueprint" : "cluster_bluprint",
+  "default_password" : "admin",
+  "host_groups" :[
+    {
+      "name" : "host_group_1",
+      "hosts" : [
+        {
+          "fqdn" : "hzadg-mammut-platform2.server.163.org"
+        }
+      ]
+    },
+    {
+      "name" : "host_group_2",
+      "hosts" : [
+        {
+          "fqdn" : "hzadg-mammut-platform3.server.163.org"
+        }
+      ]
+    },
+    {
+      "name" : "host_group_3",
+      "hosts" : [
+        {
+          "fqdn" : "hzadg-mammut-platform4.server.163.org"
+        }
+      ]
+    }
+  ]
+}
