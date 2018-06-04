@@ -15,16 +15,18 @@
 ### 步骤1： 安装ambari-server和ambari-agent
 
 安装ambari-server:
-> dpkg -i ambari-server_2.5.1.0-0-dist.deb
-> ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
-> ambari-server setup
-> ambari-server restart
+
+> dpkg -i ambari-server_2.5.1.0-0-dist.deb  
+> ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar  
+> ambari-server setup  
+> ambari-server restart  
 
 安装ambari-agent:
+
 >
-> dpkg -i ambari-agent_2.5.1.0-0.deb
-> ambari-agent reset hzadg-mammut-platform1.server.163.org
-> ambari-agent restart
+> dpkg -i ambari-agent_2.5.1.0-0.deb  
+> ambari-agent reset hzadg-mammut-platform1.server.163.org  
+> ambari-agent restart  
 
 
 ### 步骤2： 选择你需要安装的集群种类
@@ -34,14 +36,14 @@
 * cluster_mapping.json: 定义真是机器域名同机器映射之间的关系，默认提供的是3台机器安装所有服务组件；
 
 cluster_with_7_services:
-> * 无kerberos环境；
-> * 3台机器映射；
+> * 无kerberos环境；  
+> * 3台机器映射；  
 
-* Zookeeper;
-* HDFS;
-* YARN;
-* MapReduce;
-* HBase;
+* Zookeeper;  
+* HDFS;  
+* YARN;  
+* MapReduce;  
+* HBase;  
 * Kafka;
 * Ambari Metrics;
 
@@ -59,7 +61,7 @@ cluster_with_9_services:
 * Hive;
 * Ambari Metrics;
 
-> 1. 并不是所有的安装模板都是通用的，需要根据实际情况修改特定的配置，此处需要注意；  
+> 1. 并不是所有的安装模板都是通用的，需要根据实际情况修改特定的配置，此处需要注意；   
 > 2. 同时，如果需要改变安装机器映射关系，可以修改cluster_mapping.json文件;  
 > 3. 较复杂的blueprint映射关系，可能导致校验、安装失败，此处需要根据实际情况来使用；  
 
